@@ -1,75 +1,50 @@
-body
-{
-    font-size: .85em;
-    font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif;
-    color: #232323;
-    background-color: #fff;
+h1, h2, h3, h4, h5, h6 {
+    text-shadow: 1px 1px 2px #777;
 }
 
-header,
-footer,
-nav,
-section {
-    display: block;
+.navbar .brand 
+{
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 75px;
+}
+.navbar img 
+{
+    max-height: 100%;
 }
 
-/* Styles for basic forms
------------------------------------------------------------*/
-
-fieldset 
+.logo 
 {
-    border:1px solid #ddd;
-    padding:0 1.4em 1.4em 1.4em;
-    margin:0 0 1.5em 0;
+    text-align: center;
+}    
+
+@media (max-width: 767px) 
+{
+  
+  .hero-unit 
+  {
+      padding: 30px;
+  }
 }
 
-legend 
+@media (min-width: 980px) 
 {
-    font-size:1.2em;
-    font-weight: bold;
-}
+    
+    .navbar .container 
+    {
+        position: relative;
+    }
 
-textarea 
-{
-    min-height: 75px;
-}
-
-.editor-label 
-{
-    margin: 1em 0 0 0;
-}
-
-.editor-field 
-{
-    margin:0.5em 0 0 0;
-}
-
-
-/* Styles for validation helpers
------------------------------------------------------------*/
-.field-validation-error
-{
-    color: #ff0000;
-}
-
-.field-validation-valid
-{
-    display: none;
-}
-
-.input-validation-error
-{
-    border: 1px solid #ff0000;
-    background-color: #ffeeee;
-}
-
-.validation-summary-errors
-{
-    font-weight: bold;
-    color: #ff0000;
-}
-
-.validation-summary-valid
-{
-    display: none;
+    .navbar .nav 
+    {
+        position: absolute;   
+        bottom: 0;
+        right: 0;
+        left: inherit;
+    }
+    
+    body 
+    {
+        padding-top: 95px;
+    }
 }

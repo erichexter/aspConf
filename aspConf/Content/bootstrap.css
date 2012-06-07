@@ -153,7 +153,7 @@ textarea {
 
 body {
   margin: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
   font-size: 13px;
   line-height: 18px;
   color: #333333;
@@ -418,7 +418,6 @@ a:hover {
 
 p {
   margin: 0 0 9px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 13px;
   line-height: 18px;
 }
@@ -3593,7 +3592,9 @@ input[type="submit"].btn.btn-mini {
   text-decoration: none;
 }
 
-.navbar .brand {
+.navbar .brand 
+{
+  height: 40px;
   display: block;
   float: left;
   padding: 8px 20px 12px;
@@ -3753,7 +3754,7 @@ input[type="submit"].btn.btn-mini {
   position: relative;
   left: 0;
   display: block;
-  float: left;
+  float: right;
   margin: 0 10px 0 0;
 }
 
