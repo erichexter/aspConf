@@ -1,50 +1,129 @@
-h1, h2, h3, h4, h5, h6 {
+*
+{
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html, body 
+{
+    height: 100%;
+}
+
+
+body
+{
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6
+{
     text-shadow: 1px 1px 2px #777;
 }
 
-.navbar .brand 
+nav ul
 {
-    padding-top: 0;
-    padding-bottom: 0;
-    height: 75px;
-}
-.navbar img 
-{
-    max-height: 100%;
+    list-style: none outside none;
+    padding: 0;
+    margin: 0;
 }
 
-.logo 
+.container
 {
+    width: 92%;
+    margin: 0 auto;
+}
+
+.banner
+{
+    background-color: #111;
+    margin-bottom: 20px;
+}
+
+.banner .container
+{
+    width: 100%;
+    margin: 0 0;
+}
+
+.wrapper 
+{
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -10em;
+}
+
+#main 
+{
+    margin-bottom: 10em;
+}
+
+.footer 
+{
+    padding: 1em 0;
+    height: 10em;  
+    clear: both; 
+}
+
+.nav-main
+{
+    background: linear-gradient(top, rgb(255,130,21) 0%, rgb(238,74,20) 100%);
+    background: -o-linear-gradient(top, rgb(255,130,21) 0%, rgb(238,74,20) 100%);
+    background: -moz-linear-gradient(top, rgb(255,130,21) 0%, rgb(238,74,20) 100%);
+    background: -webkit-linear-gradient(top, rgb(255,130,21) 0%, rgb(238,74,20) 100%);
+    background: -ms-linear-gradient(top, rgb(255,130,21) 0%, rgb(238,74,20) 100%);
+}
+
+.nav-main ul
+{
+    width: 92%;
+    margin: 0 auto;
+}
+
+.nav-main a, .footer a
+{
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.nav-main a:hover li, .footer
+{
+    
+    background-image: linear-gradient(top, rgb(37,166,222) 0%, rgb(28,117,227) 100%);
+    background-image: -o-linear-gradient(top, rgb(37,166,222) 0%, rgb(28,117,227) 100%);
+    background-image: -moz-linear-gradient(top, rgb(37,166,222) 0%, rgb(28,117,227) 100%);
+    background-image: -webkit-linear-gradient(top, rgb(37,166,222) 0%, rgb(28,117,227) 100%);
+    background-image: -ms-linear-gradient(top, rgb(37,166,222) 0%, rgb(28,117,227) 100%);
+}
+
+.nav-main a:hover li {
+    color: #fff;
+}
+
+.nav-main li
+{
+    float: left;
+    padding: 10px 12px;
     text-align: center;
-}    
-
-@media (max-width: 767px) 
-{
-  
-  .hero-unit 
-  {
-      padding: 30px;
-  }
 }
 
-@media (min-width: 980px) 
+.logo
 {
-    
-    .navbar .container 
-    {
-        position: relative;
-    }
+    max-width: 289px;
+    margin: 20px auto;
+}
 
-    .navbar .nav 
+@media (max-width: 767px)
+{
+
+    .hero-unit
     {
-        position: absolute;   
-        bottom: 0;
-        right: 0;
-        left: inherit;
+        padding: 30px;
     }
-    
-    body 
-    {
-        padding-top: 95px;
-    }
+}
+
+@media (min-width: 980px)
+{
+
 }

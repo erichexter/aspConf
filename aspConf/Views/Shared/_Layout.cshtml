@@ -25,17 +25,33 @@
   </head>
 
   <body>
-
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand hide-text" href="/"><img alt="aspConf Logo" src="/Content/logo.png"/></a>
-          <div class="nav-collapse">
+    <div class="wrapper">
+        <header role="banner" class="banner">
+            <section class="container">
+                <div class="logo">
+                    <a href="/"><img alt="aspConf Logo" src="@Url.Content("~/Content/logo.png")"/></a>
+                </div>
+                <nav class="nav-main clearfix">
+                    <ul>
+                        <a href="/schedule"><li>Schedule</li></a>
+                        <a href="/speakers"><li>Speakers</li></a>
+                        <a href="/videos"><li>Videos</li></a>
+                        <a href="/sponsors"><li>Sponsors</li></a>
+                    </ul>
+                </nav>
+            </section>   
+        </header>
+   
+        <div id="main">
+            <section class="container">
+                @RenderBody()
+            </section> <!-- /container -->
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <footer class="footer">
+        <section class="container">
+            <nav>
             <ul class="nav">
                 <li>@*<a href="/">Home</a>*@</li>
                 <li><a href="http://jabbr.net/#/rooms/aspConf">Chat</a></li>
@@ -43,21 +59,10 @@
                 <li><a href="http://aspconf.eventbrite.com/">Register</a></li>
                 <li><a href="https://docs.google.com/spreadsheet/viewform?formkey=dFp3bFpUdnBOY1hpR1FjOTk4SEdNT3c6MA#gid=0">Volunteer</a></li>
             </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-
-@RenderBody()
-      <hr>
-
-      <footer>
-        <p>&copy; aspConf 2012 | <a href="http://geeksharenetwork.com/" target="_blank">GeekShare Network</a></p>
-      </footer>
-
-    </div> <!-- /container -->
+            </nav>
+            <p class="copyright">&copy; aspConf 2012 | <a href="http://geeksharenetwork.com/" target="_blank">GeekShare Network</a></p>
+        </seciton>
+    </footer>
 
     <!-- Le javascript
     ================================================== -->
