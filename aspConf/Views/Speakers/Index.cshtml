@@ -1,1 +1,29 @@
-﻿<h2>Speakers</h2>
+﻿@model IList<aspConf.Model.Speaker>
+<h2>
+    Check out these swesome speakers!</h2>
+<p>
+    We have a great line up of top notch speakers varying from <a href="http://www.asp.net/" target="_blank">ASP.NET team</a> members, MVPs and Community Influencers for
+    aspConf!</p>
+<p>&nbsp;</p>
+
+<table>
+    @foreach (var speaker in Model) {
+        var twitter = "http://twitter.com/@" + speaker.Twitter;
+        <tr valign="top">
+            <td align="left">
+                <img src="@Url.Content("~/content/images/speakers/missing.png")" alt="aspConf Speaker @speaker.FullName" />
+                <br />
+                <a href="@twitter" target="_blank">@@@speaker.Twitter</a>
+                <br />
+            </td>
+            <td align="left">
+                <h3>@speaker.FullName</h3>
+                <p>
+                    @speaker.Bio</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">&nbsp;</td>
+        </tr>
+    }
+</table>

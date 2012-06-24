@@ -1,8 +1,8 @@
-﻿using System.Web.Mvc;
-
-namespace aspConf.Controllers
+﻿namespace aspConf.Controllers
 {
-    public class HomeController : Controller
+    using System.Web.Mvc;
+
+    public class HomeController : ConfController
     {
         public ActionResult Index()
         {

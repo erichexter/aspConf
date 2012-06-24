@@ -1,0 +1,10 @@
+﻿@model IList<aspConf.Model.Sponsor>
+@foreach (var sponsor in Model) {
+    <div>
+        <a href="@sponsor.Url" alt="@sponsor.Name" title="@sponsor.Name" target="_blank">
+            <img src="@Url.Content("~/Content/images/sponsorLogos/sidebar/" + sponsor.ImageName)" /></a>
+        <p>@sponsor.Bio</p>
+        <p>
+            <a href="@sponsor.Url" target="_blank">Visit Sponsor Site</a></p>
+    </div>
+}

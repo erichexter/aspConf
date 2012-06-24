@@ -1,43 +1,31 @@
-﻿<div class="sponsors-partner">
+﻿@using aspConf.Model
+@{
+    var sponsors = ViewBag.Sponsors as IList<Sponsor> ?? new List<Sponsor>();
+
+    if (sponsors.Count == 0) {
+        return;
+    }
+    
+    var partnerSponsors = sponsors.Where(s => s.LevelId == 1).ToList();
+    var conferenceSponsors = sponsors.Where(s => s.LevelId != 1).ToList();
+}           
+<div class="sponsors-partner">
     <h3>
         Partner Sponsors</h3>
     <ul>
-        <li><a href="http://www.microsoft.com" alt="Microsoft" title="Microsoft" target="_blank">
-            <img src="@Url.Content("~/Content/images/sponsorLogos/sidebar/mslogo-1.jpg")" /></a></li>
-        <li><a href="http://umbraco.codeplex.com" alt="Umbraco" title="Umbraco" target="_blank">
-            <img src="@Url.Content("~/Content/images/sponsorLogos/sidebar/umbraco.jpg")" /></a></li>
+        @foreach (var sponsor in partnerSponsors) {
+            <li><a href="@sponsor.Url" alt="@sponsor.Name" title="@sponsor.Name" target="_blank">
+            <img src="@Url.Content("~/Content/images/sponsorLogos/sidebar/" + sponsor.ImageName)" /></a></li>
+        }
     </ul>
 </div>
 <div class="sponsors-conference">
     <h3>
         Conference Sponsors</h3>
     <ul>
-        <li><a href="http://www.telerik.com/products/aspnet-mvc.aspx?utm_source=Conferences&utm_medium=Site&utm_campaign=MvcConf"
-            alt="telerik" title="telerik" target="_blank">
-            <img src="@Url.Content("~/Content/images/sponsorLogos/sidebar/telerikLogo-web-174x69px.jpg")" /></a></li>
-        <li><a href="http://www.devexpress.com/60" alt="DevExpress" title="DevExpress" target="_blank">
-            <img src="@Url.Content("~/Content/images/sponsorLogos/sidebar/DXLogo_60Free.png")" /></a></li>
-        <li><a href="http://nimblepros.com" alt="NimblePros" title="NimblePros" target="_blank">
-            <img src="@Url.Content("~/Content/images/sponsorLogos/sidebar/nimblepros.png")" />
-        </a></li>
-        <li><a href="http://www.infragistics.com/dotnet/netadvantage/jquery-controls.aspx"
-            alt="Infragistics" title="Infragistics" target="_blank">
-            <img src="@Url.Content("~/Content/images/sponsorLogos/sidebar/infragistics.png")" />
-        </a></li>
-        <li><a href="http://www.techsmith.com" alt="TechSmith" title="TechSmith" target="_blank">
-            <img src="@Url.Content("~/Content/images/sponsorLogos/sidebar/techsmith.png")" />
-        </a></li>
-        <li><a href="http://www.codeproject.com" alt="The Code Project" title="The Code Project"
-            target="_blank">
-            <img src="@Url.Content("~/Content/images/sponsorLogos/sidebar/code_project.jpg")" />
-        </a></li>
-        <li><a href="http://www.pluralsight.com" alt="Pluralsight" title="Pluralsight" target="_blank">
-            <img src="@Url.Content("~/Content/images/sponsorLogos/sidebar/pluralsight.png")" />
-            <li>
-        </a></li>
-        <li><a href="http://www.webcamps.ms/upcoming-web-camps.aspx" alt="Microsoft Web Camps"
-            title="Microsoft Web Camps" target="_blank">
-            <img src="@Url.Content("~/Content/images/sponsorLogos/sidebar/webcampbadge200.png")" />
-        </a></li>
+        @foreach (var sponsor in conferenceSponsors) {
+            <li><a href="@sponsor.Url" alt="@sponsor.Name" title="@sponsor.Name" target="_blank">
+            <img src="@Url.Content("~/Content/images/sponsorLogos/sidebar/" + sponsor.ImageName)" /></a></li>
+        }
     </ul>
 </div>

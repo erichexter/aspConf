@@ -1,12 +1,10 @@
-namespace aspConf.Controllers
-{
+namespace aspConf.Controllers {
+    using System.Linq;
     using System.Web.Mvc;
 
-    public class SponsorsController : Controller
-    {
-        public ActionResult Index()
-        {
-            return View();
+    public class SponsorsController : ConfController {
+        public ActionResult Index() {
+            return View(Context.Sponsors.ToList());
         }
     }
 }
