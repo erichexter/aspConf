@@ -4,7 +4,13 @@ namespace aspConf.Controllers {
 
     public class SponsorsController : ConfController {
         public ActionResult Index() {
-            return View(Context.Sponsors.ToList());
+            using (var context = Context) {
+                var list = context.Sponsors
+                    .Where(sp => sp.IsActive)
+                    .ToList();
+
+                return View(list);
+            }
         }
     }
 }

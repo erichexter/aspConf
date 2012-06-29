@@ -9,5 +9,6 @@ namespace aspConf.Model {
         public string ImageName { get; set; }
         public int SponsorId { get; set; }
         public int? LevelId { get; set; }
+        public bool IsActive { get; set; }
     }
 }

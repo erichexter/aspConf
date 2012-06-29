@@ -5,7 +5,11 @@ namespace aspConf.Controllers {
     public class SpeakersController : ConfController {
         public ActionResult Index() {
             using (var context = Context) {
-                return View(context.Speakers.ToList());
+                var list = context.Speakers
+                    .Where(sp => sp.IsActive)
+                    .ToList();
+
+                return View(list);
             }
         }
     }

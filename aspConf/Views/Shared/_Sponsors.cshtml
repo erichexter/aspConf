@@ -13,9 +13,11 @@
     <h3>
         Partner Sponsors</h3>
     <ul>
-        @foreach (var sponsor in partnerSponsors) {
+        @foreach (var sponsor in partnerSponsors)   {
+            var filePath = string.Format("//static.aspconf.co/content/images/sponsorLogos/sidebar/{0}", sponsor.ImageName);
+            
             <li><a href="@sponsor.Url" alt="@sponsor.Name" title="@sponsor.Name" target="_blank">
-            <img src="@Url.Content("~/Content/images/sponsorLogos/sidebar/" + sponsor.ImageName)" /></a></li>
+            <img src="@filePath" /></a></li>
         }
     </ul>
 </div>
@@ -24,8 +26,10 @@
         Conference Sponsors</h3>
     <ul>
         @foreach (var sponsor in conferenceSponsors) {
+            var filePath = string.Format("//static.aspconf.co/content/images/sponsorLogos/sidebar/{0}", sponsor.ImageName);
+            
             <li><a href="@sponsor.Url" alt="@sponsor.Name" title="@sponsor.Name" target="_blank">
-            <img src="@Url.Content("~/Content/images/sponsorLogos/sidebar/" + sponsor.ImageName)" /></a></li>
+            <img src="@filePath" /></a></li>
         }
     </ul>
 </div>

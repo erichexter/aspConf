@@ -10,6 +10,7 @@ namespace aspConf.Model {
         public string Twitter { get; set; }
         public string Email { get; set; }
         public int SpeakerId { get; set; }
+        public bool IsActive { get; set; }
 
         public virtual ICollection<Session> Sessions { get; set; }
     }

@@ -7,8 +7,6 @@
             }
             <img src="@filePath" />
         </a>
-        <p>@sponsor.Bio</p>
-        <p>
-            <a href="@sponsor.Url" target="_blank">Visit Sponsor Site</a></p>
+        <p>@Html.Raw(sponsor.Bio) | <a href="@sponsor.Url" target="_blank">Visit Sponsor Site</a></p>
     </div>
 }
