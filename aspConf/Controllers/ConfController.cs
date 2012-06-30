@@ -1,12 +1,19 @@
 namespace aspConf.Controllers {
     using System.Web.Mvc;
-    using aspConf.Model;
+    using aspConf.Controllers.Models;
 
     public abstract class ConfController : Controller {
         protected ConfController() {
-            Context = new ConfContext();
+            Repository = new ConfRepository();
         }
 
-        public ConfContext Context { get; protected set; }
+        public ConfRepository Repository { get; protected set; }       
+
+        public ActionResult Clear() {
+            Repository.ClearCache();
+
+            return RedirectToAction("Index", "Home");
+        }
     }
+   
 }
