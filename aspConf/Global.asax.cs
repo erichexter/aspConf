@@ -1,18 +1,14 @@
-﻿using System.Web.Mvc;
-using System.Web.Routing;
+﻿namespace aspConf {
+    using System.Web.Mvc;
+    using System.Web.Routing;
 
-namespace aspConf
-{
-    public class MvcApplication : System.Web.HttpApplication
-    {
-        public static void RegisterGlobalFilters(GlobalFilterCollection filters)
-        {
+    public class MainApp : System.Web.HttpApplication {
+        public static void RegisterGlobalFilters(GlobalFilterCollection filters) {
             filters.Add(new SponsorGlobalFilter());
             filters.Add(new HandleErrorAttribute());
         }
 
-        public static void RegisterRoutes(RouteCollection routes)
-        {
+        public static void RegisterRoutes(RouteCollection routes) {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
@@ -23,8 +19,7 @@ namespace aspConf
 
         }
 
-        protected void Application_Start()
-        {
+        protected void Application_Start() {
             AreaRegistration.RegisterAllAreas();
 
             RegisterGlobalFilters(GlobalFilters.Filters);
