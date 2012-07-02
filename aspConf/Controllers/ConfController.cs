@@ -14,5 +14,9 @@ namespace aspConf.Controllers {
 
             return RedirectToAction("Index", "Home");
         }
+
+        public ActionResult Blitz() {
+            return Content("42");
+        }
     }
 }

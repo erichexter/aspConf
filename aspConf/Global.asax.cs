@@ -11,6 +11,9 @@
         public static void RegisterRoutes(RouteCollection routes) {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapRoute("blitz", "mu-d42f6215-0b436c7f-12a37bc2-a4b054ef",
+                            new {controller = "Home", action = "Blitz"});
+
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
