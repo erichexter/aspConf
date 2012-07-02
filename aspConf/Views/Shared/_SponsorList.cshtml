@@ -3,10 +3,11 @@
     <div>
         <a href="@sponsor.Url" alt="@sponsor.Name" title="@sponsor.Name" target="_blank">
             @{
-                var filePath = string.Format("//static.aspconf.co/content/images/sponsorLogos/sidebar/{0}", sponsor.ImageName);
+                var filePath = string.Format("//cdn.geekstati.co/aspconf/content/images/sponsorLogos/sidebar/{0}", sponsor.ImageName);
             }
             <img src="@filePath" />
         </a>
         <p>@Html.Raw(sponsor.Bio) | <a href="@sponsor.Url" target="_blank">Visit Sponsor Site</a></p>
     </div>
+    <br />
 }
