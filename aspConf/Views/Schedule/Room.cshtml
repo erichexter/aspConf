@@ -1,0 +1,32 @@
+﻿
+
+<h2>Room</h2>
+
+
+
+<h2>Room @Page.id</h2>
+
+<p>The meetings are hosted in Live Meeting. It should work from most corporate and public enviornments. When you join the live meeting please enter your name or twitter handle and location in the name box, ie. <strong>Eric H- Austin Tx</strong> or  <strong>@@ehexter - Austin Texas</strong>.</p>
+
+<h4>Live Meeting For OS X</h4>
+<p>If you're running <strong>OS X</strong>, please skip step #1 and <strong>go directly to step #3 with Safari</strong>.  For instructions on how to use Live Meeting within OSX, please refer to this <a href="http://support.microsoft.com/kb/884961" target="_blank">KB article</a>.</p>
+<br />
+
+<div>
+    <a class="button room-button" target="_blank" title="This is a one time install, no need to download if you know you already have it." href="/?l=livemeeting">1. Download Live Meeting</a>
+    <br/><br/>
+    <a class="button room-button" target="_blank" 
+    title="MvcConf specific instructions for Audio Setup, Giving Feedback, and Asking Questions" 
+    href="/downloads/attendee_howto.pdf"> 2. Read Meeting Feedback</a>
+    <br/><br/>
+    <a class="button room-button" title="Lets learn something." href="/?l=room@(@Page.id)" target="_blank">3. Join the live meeting</a>
+    
+</div>
+<br/><br/>
+<p>Since live meeting does not provide a great way for everyone to interact durring presentations we are going to use IRC (Internet Relay Chat) to do this.  I know it is pretty old school, but I think it
+adds something that is missing from live meeting. So when you login please use the same name in the chat that you used in the live meeting.</p>
+<a title="Please use the same name as you did in the live meeting." class="button   chat-link" href="#">Webchat</a>
+<div  id="webchat" style="display:none" title="Room @Page.id Web Chat">
+<iframe id="iframe-irc" src="http://webchat.freenode.net?channels=mvcconf-room@(@Page.id)" width="100%" height="100%" ></iframe>
+</div>
+

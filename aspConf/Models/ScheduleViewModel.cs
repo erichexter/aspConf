@@ -7,6 +7,16 @@ namespace aspConf.Controllers.Models
     {
         public ScheduleViewModel()
         {
+            Days= new List<ScheduleDay>();
+        }
+
+        public IList<ScheduleDay> Days { get; set; }
+    }
+
+    public class ScheduleDay
+    {
+        public ScheduleDay()
+        {
             Rooms= new List<Room>();
             TimeSlots=new List<TimeSlot>();
         }
@@ -14,6 +24,8 @@ namespace aspConf.Controllers.Models
         public IList<Room> Rooms { get; set; }
 
         public IList<TimeSlot> TimeSlots { get; set; }
+
+        public string Title { get; set; }
     }
 
     public class TimeSlot
