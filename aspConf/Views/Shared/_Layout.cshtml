@@ -49,6 +49,11 @@
                             <li>Sponsors</li></a>
                         @*<a href="/videos">
                             <li>Videos</li></a> *@
+                        @if(Request.IsAuthenticated) {
+                         <a href="/account/logoff">
+                            <li>Log Off</li>
+                         </a> 
+                        }
                     </ul>
                 </nav>
             </section>

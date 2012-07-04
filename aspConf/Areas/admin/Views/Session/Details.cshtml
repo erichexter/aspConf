@@ -1,0 +1,30 @@
+﻿@model aspConf.Model.Session
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Session</legend>
+
+    <div class="display-label">Title</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+
+    <div class="display-label">Speaker</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Speaker.FullName)
+    </div>
+
+    <div class="display-label">Description</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.SessionId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
