@@ -1,1 +1,78 @@
-﻿<h2>Schedule</h2>
+﻿@model aspConf.Controllers.Models.ScheduleViewModel
+<h2>Schedule</h2>
+
+<table id="schedule" cellspacing="0" cellpadding="0">
+                    <colgroup> 
+                        <col id="times"> 
+                        @for(int i=0;i<Model.Rooms.Count;i++)
+                         {
+                            <text><col class="track"></text> 
+                          }                       
+                    </colgroup>
+
+                	<thead>
+                        <tr class="tableHead">
+                            <th>Time</th>
+                            @foreach(var room in Model.Rooms)
+                            {
+                                <th>@room.Name</th>
+                            }
+                        </tr>
+                        <tr>
+                            <th></th>
+                            @foreach(var room in Model.Rooms)
+                            {
+                                <td><a class="button small ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" 
+                                href="@room.JoinUrl" role="button"><span class="ui-button-text">join</span></a></td>                                    
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var timeSlot in Model.TimeSlots)
+                        {  
+                            <tr valign="top" class="sessionname">
+                                <td>
+                                    <ul style="list-style-type:none">
+                                        @foreach(string time in timeSlot.Times)
+                                        {
+                                            <li>@time</li>
+                                        }
+                                    </ul>
+                                </td>
+                                @foreach(var session in timeSlot.Sessions)
+                                {
+                                    <td @if(session!=null && session.IsKeynote){  <text>colspan="@Model.Rooms.Count" class="allrooms"</text> }>
+                                            
+                                            @if(session==null)
+                                            {
+                                                <text>&nbsp;</text>
+                                            }
+                                            else
+                                            {
+                                                <p class="presentation"><strong><a href="@session.Url">@session.Title</a></strong>
+                                                </p>
+                                                <p class="speaker">@session.SpeakerName</p>    
+                                            }                                        
+                                        </td>    
+                                }
+                                </tr>
+                            <tr valign="middle" class="sessioninfo">
+                                <td></td>
+                                @foreach(var session in timeSlot.Sessions)
+                                {
+                                    <td @if(session!=null && session.IsKeynote){  <text>colspan="@Model.Rooms.Count" class="allrooms"</text> }>
+                                        @if(session==null)
+                                        {
+                                            <text>&nbsp;</text>
+                                        }
+                                        else
+                                        {
+                                            <p align="center">
+                                                <script type="text/javascript"                                                         src="http://speakerrate.com/talks/@session.SpeakerRateId/widget.js"                                                         id="speakerrate-widget-@session.SpeakerRateId"> </script>                                            </p>
+                                        }
+                                   </td>    
+                                }                                
+                            </tr>
+                            }       
+    </tbody>
+  </table>
