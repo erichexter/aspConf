@@ -1,0 +1,45 @@
+﻿@model aspConf.Model.Sponsor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Sponsor</legend>
+
+    <div class="display-label">Bio</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Bio)
+    </div>
+
+    <div class="display-label">Url</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Url)
+    </div>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">ImageName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ImageName)
+    </div>
+
+    <div class="display-label">LevelId</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LevelId)
+    </div>
+
+    <div class="display-label">IsActive</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsActive)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.SponsorId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,7 +1,8 @@
-﻿using System.Web.Mvc;
-
+﻿
 namespace aspConf.Areas.admin {
-    public class adminAreaRegistration : AreaRegistration {
+    using System.Web.Mvc;
+
+    public class AdminAreaRegistration : AreaRegistration {
         public override string AreaName {
             get {
                 return "admin";
@@ -12,7 +13,7 @@ namespace aspConf.Areas.admin {
             context.MapRoute(
                 "admin_default",
                 "admin/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { controller="Default", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

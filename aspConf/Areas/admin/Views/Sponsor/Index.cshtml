@@ -1,0 +1,63 @@
+﻿@model IEnumerable<aspConf.Model.Sponsor>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            Bio
+        </th>
+        <th>
+            Url
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            ImageName
+        </th>
+        <th>
+            LevelId
+        </th>
+        <th>
+            IsActive
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Url)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ImageName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LevelId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsActive)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SponsorId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SponsorId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SponsorId })
+        </td>
+    </tr>
+}
+
+</table>

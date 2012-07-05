@@ -17,7 +17,8 @@
                         && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\")) {
                         return Redirect(returnUrl);
                     }
-                    return RedirectToAction("Index", "Home");
+
+                    return RedirectToAction("Index", "Default");
                 }
                 
                 ModelState.AddModelError("", "The user name or password provided is incorrect.");
