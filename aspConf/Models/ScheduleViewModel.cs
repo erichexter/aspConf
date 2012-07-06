@@ -8,7 +8,7 @@ namespace aspConf.Controllers.Models
     {
         public ScheduleViewModel()
         {
-            Days= new List<ScheduleDay>();
+            Days = new List<ScheduleDay>();
         }
 
         public IList<ScheduleDay> Days { get; set; }
@@ -18,8 +18,8 @@ namespace aspConf.Controllers.Models
     {
         public ScheduleDay()
         {
-            Rooms= new List<Room>();
-            TimeSlots=new List<TimeSlot>();
+            Rooms = new List<Room>();
+            TimeSlots = new List<TimeSlot>();
         }
 
         public IList<Room> Rooms { get; set; }
@@ -46,12 +46,12 @@ namespace aspConf.Controllers.Models
         {
             foreach (var time in times)
             {
-                Times.Add(time);    
+                Times.Add(time);
             }
-            
+
             return this;
         }
-        
+
         public TimeSlot AddSession(ScheduleSession session)
         {
             Sessions.Add(session);
@@ -60,7 +60,7 @@ namespace aspConf.Controllers.Models
         public IList<string> Times { get; set; }
 
         public IList<ScheduleSession> Sessions { get; set; }
-      
+
     }
 
     public class ScheduleSession
@@ -78,22 +78,22 @@ namespace aspConf.Controllers.Models
 
     public static class ScheduleSessionExtensions
     {
-        public static ScheduleSession FindScheduleSession(this ConfContext context,int id,bool isKeynote = false)
+        public static ScheduleSession FindScheduleSession(this ConfContext context, int id, bool isKeynote = false)
         {
             return context.Sessions.Find(id).AsScheduleSession(isKeynote);
         }
-        public static ScheduleSession AsScheduleSession(this Session session,bool isKeynote = false)
+        public static ScheduleSession AsScheduleSession(this Session session, bool isKeynote = false)
         {
-            
+
             return new ScheduleSession()
                        {
                            IsKeynote = isKeynote,
                            SpeakerName = session.Speaker.FullName,
                            Title = session.Title,
-                           SpeakerRateId =  "",
+                           SpeakerRateId = "",
                            Url = "",
                        };
-        } 
+        }
     }
 
     public class Room
