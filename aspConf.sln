@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeakerMailer", "SpeakerMai
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aspConf.Model", "aspConf.Model\aspConf.Model.csproj", "{3D66D99D-9964-4E34-8127-ECA30DC970FF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudFrontManager", "CloudFrontManager\CloudFrontManager\CloudFrontManager.csproj", "{23C5A04C-68E7-4C62-9253-4DA051769E3F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utilities", "Utilities", "{1C577B86-D24D-4E94-BF5C-54E7866FCFED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,8 +51,22 @@ Global
 		{3D66D99D-9964-4E34-8127-ECA30DC970FF}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{3D66D99D-9964-4E34-8127-ECA30DC970FF}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{3D66D99D-9964-4E34-8127-ECA30DC970FF}.Release|x86.ActiveCfg = Release|Any CPU
+		{23C5A04C-68E7-4C62-9253-4DA051769E3F}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{23C5A04C-68E7-4C62-9253-4DA051769E3F}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{23C5A04C-68E7-4C62-9253-4DA051769E3F}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{23C5A04C-68E7-4C62-9253-4DA051769E3F}.Debug|x86.ActiveCfg = Debug|x86
+		{23C5A04C-68E7-4C62-9253-4DA051769E3F}.Debug|x86.Build.0 = Debug|x86
+		{23C5A04C-68E7-4C62-9253-4DA051769E3F}.Release|Any CPU.ActiveCfg = Release|x86
+		{23C5A04C-68E7-4C62-9253-4DA051769E3F}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{23C5A04C-68E7-4C62-9253-4DA051769E3F}.Release|Mixed Platforms.Build.0 = Release|x86
+		{23C5A04C-68E7-4C62-9253-4DA051769E3F}.Release|x86.ActiveCfg = Release|x86
+		{23C5A04C-68E7-4C62-9253-4DA051769E3F}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{23C5A04C-68E7-4C62-9253-4DA051769E3F} = {1C577B86-D24D-4E94-BF5C-54E7866FCFED}
+		{916BE663-92A9-48B3-AE26-EF5F94457041} = {1C577B86-D24D-4E94-BF5C-54E7866FCFED}
 	EndGlobalSection
 EndGlobal
