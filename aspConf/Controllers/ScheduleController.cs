@@ -1,11 +1,14 @@
 using System.Collections.Generic;
 using aspConf.Controllers.Models;
+using aspConf.Model;
 
 namespace aspConf.Controllers {
     using System.Web.Mvc;
 
     public class ScheduleController : Controller
     {
+        private ConfContext db = new ConfContext();
+
         public ActionResult Room()
         {
             return View();
@@ -14,114 +17,138 @@ namespace aspConf.Controllers {
         {
             var model = new ScheduleViewModel();
             var day1 = new ScheduleDay() {Title = "Day 1"};
-            
-            day1.TimeSlots.Add(
-                new TimeSlot()
-                    .AddTime("8-9am CST")
-                    .AddTime("6-7AM PST")
-                    .AddTime("14-15 UTC")
-                    .AddSession(null)
-                    .AddSession(new ScheduleSession()
-                                    {
-                                        IsKeynote = false,
-                                        SpeakerName = "Shay Friedman",
-                                        Title = "The Big Comparison of ASP.NET MVC View Engines",
-                                        SpeakerRateId = "5518",
-                                        Url = "/sessions/#friedman"
-                                    })
-                    .AddSession(new ScheduleSession()
-                    {
-                        IsKeynote = false,
-                        SpeakerName = "John Peterson",
-                        Title = "Intro to MVC2",
-                        SpeakerRateId = "1",
-                        Url = "/sessions/#friedman"
-                    })
-                    .AddSession(new ScheduleSession()
-                    {
-                        IsKeynote = false,
-                        SpeakerName = "John Peterson",
-                        Title = "Intro to MVC3",
-                        SpeakerRateId = "2",
-                        Url = "/sessions/#friedman"
-                    })
-                    .AddSession(new ScheduleSession()
-                    {
-                        IsKeynote = false,
-                        SpeakerName = "John Peterson",
-                        Title = "Intro to MVC4",
-                        SpeakerRateId = "3",
-                        Url = "/sessions/#friedman"
-                    })
-                
-                );
-
-            day1.TimeSlots.Add(
-                new TimeSlot()
-                    .AddTime("9-10am CST")
-                    .AddTime("7-8AM PST")
-                    .AddTime("15-16 UTC")
-                    .AddSession(null)
-                    .AddSession(new ScheduleSession()
-                    {
-                        IsKeynote = false,
-                        SpeakerName = "Shay Friedman",
-                        Title = "The Big Comparison of ASP.NET MVC View Engines",
-                        SpeakerRateId = "5518",
-                        Url = "/sessions/#friedman"
-                    })
-                    .AddSession(new ScheduleSession()
-                    {
-                        IsKeynote = false,
-                        SpeakerName = "John Peterson",
-                        Title = "Intro to MVC2",
-                        SpeakerRateId = "1",
-                        Url = "/sessions/#friedman"
-                    })
-                    .AddSession(new ScheduleSession()
-                    {
-                        IsKeynote = false,
-                        SpeakerName = "John Peterson",
-                        Title = "Intro to MVC3",
-                        SpeakerRateId = "2",
-                        Url = "/sessions/#friedman"
-                    })
-                    .AddSession(new ScheduleSession()
-                    {
-                        IsKeynote = false,
-                        SpeakerName = "John Peterson",
-                        Title = "Intro to MVC4",
-                        SpeakerRateId = "3",
-                        Url = "/sessions/#friedman"
-                    })
-                );
-
-            day1.TimeSlots.Add(
-                new TimeSlot()
-                    .AddTime("10am CST")
-                    .AddTime("8AM PST")
-                    .AddTime("16 UTC")
-                    
-                    .AddSession(new ScheduleSession()
-                    {
-                        IsKeynote = true,
-                        SpeakerName = "The Gu",
-                        Title = "Keynote",
-                        SpeakerRateId = "5518",
-                        Url = "/sessions/#friedman"
-                    })
-                );
 
             day1.Rooms.Add(new Room() { JoinUrl = "http://live.aspconf.net", Name = "Live Streaming" });
             day1.Rooms.Add(new Room() { JoinUrl = "/live", Name = "Room 1" });
             day1.Rooms.Add(new Room() { JoinUrl = "/live", Name = "Room 2" });
             day1.Rooms.Add(new Room() { JoinUrl = "/live", Name = "Room 3" });
             day1.Rooms.Add(new Room() { JoinUrl = "/live", Name = "Room 4" });
-            //model.Rooms.Add(new Room() { JoinUrl = "/live", Name = "Room 5" }); 
+            day1.Rooms.Add(new Room() { JoinUrl = "/live", Name = "Room 5" });
+
+            day1.TimeSlots.Add(
+                new TimeSlot()
+                    .AddTime("9-10:30am CST","7-8:30am PST","3-4:30pm UTC")
+                    .AddSession(null)
+                    .AddSession(db.FindScheduleSession(22))
+                    .AddSession(db.FindScheduleSession(21))
+                    .AddSession(db.FindScheduleSession(10))
+                    .AddSession(db.FindScheduleSession(37))
+                    .AddSession(db.FindScheduleSession(20))
+                    );
+
+            day1.TimeSlots.Add(
+                new TimeSlot()
+                    .AddTime("10:30-12pm CST", "8:30-10am PST", "4:30-6pm UTC")
+                    .AddSession(null)
+                    .AddSession(db.FindScheduleSession(23))
+                    .AddSession(db.FindScheduleSession(17))
+                    .AddSession(db.FindScheduleSession(19))
+                    .AddSession(db.FindScheduleSession(2))
+                    .AddSession(null)
+                    );
+            day1.TimeSlots.Add(
+                new TimeSlot()
+                    .AddTime("12-1:30pm CST", "10-11:30am PST", "6-7:30pm UTC")
+                    .AddSession(null)
+                    .AddSession(null)
+                    .AddSession(null)
+                    .AddSession(null)
+                    .AddSession(null)
+                    .AddSession(null)
+                    );
+            day1.TimeSlots.Add(
+                new TimeSlot()
+                    .AddTime("1:30-2:30pm CST", "11:30-12:30pm PST", "7:30-8:30pm UTC")
+                    .AddSession(new ScheduleSession()
+                                    {
+                                        IsKeynote = true,
+                                        SpeakerName = "Scott Guthrie"
+                                        ,Title = "aspConf Keynote"
+                                    })
+                    );
+           day1.TimeSlots.Add(
+                new TimeSlot()
+                    .AddTime("4:30-6pm CST", "2:30-4pm PST", "10:30pm-12am UTC")
+                    .AddSession(new ScheduleSession()
+                                    {
+                                        IsKeynote = true,
+                                        SpeakerName = ""
+                                        ,Title = ""
+                                    })
+                    );
+
+           day1.TimeSlots.Add(
+                new TimeSlot()
+                    .AddTime("6-7:30pm CST", "4-5:30pm PST", "12-1:30am UTC")
+                    .AddSession(new ScheduleSession()
+                                    {
+                                        IsKeynote = true,
+                                        SpeakerName = ""
+                                        ,Title = ""
+                                    })
+                    );
 
             model.Days.Add(day1);
 
-            //model.Days.Add(new ScheduleDay(){Title = "Day 2"});
+            var day2 = new ScheduleDay() { Title = "Day 2" };
+
+            day2.Rooms.Add(new Room() { JoinUrl = "http://live.aspconf.net", Name = "Live Streaming" });
+            day2.Rooms.Add(new Room() { JoinUrl = "/live", Name = "Room 1" });
+            day2.Rooms.Add(new Room() { JoinUrl = "/live", Name = "Room 2" });
+            day2.Rooms.Add(new Room() { JoinUrl = "/live", Name = "Room 3" });
+            day2.Rooms.Add(new Room() { JoinUrl = "/live", Name = "Room 4" });
+            day2.Rooms.Add(new Room() { JoinUrl = "/live", Name = "Room 5" });
+
+            day2.TimeSlots.Add(
+                new TimeSlot()
+                    .AddTime("9-10:30am CST", "7-8:30am PST", "3-4:30pm UTC")
+                    .AddSession(new ScheduleSession(){IsKeynote = true})
+                    );
+
+            day2.TimeSlots.Add(
+                new TimeSlot()
+                    .AddTime("10:30-12pm CST", "8:30-10am PST", "4:30-6pm UTC")
+                    .AddSession(new ScheduleSession() { IsKeynote = true }));
+            day2.TimeSlots.Add(
+                new TimeSlot()
+                    .AddTime("12-1:30pm CST", "10-11:30am PST", "6-7:30pm UTC")
+                    .AddSession(new ScheduleSession() { IsKeynote = true }));
+            day2.TimeSlots.Add(
+                new TimeSlot()
+                    .AddTime("1:30-2:30pm CST", "11:30-12:30pm PST", "7:30-8:30pm UTC")
+                    .AddSession(new ScheduleSession()
+                    {
+                        IsKeynote = true,
+                        SpeakerName = "Scott Hanselman"
+                        ,
+                        Title = "aspConf Keynote"
+                    })
+                    );
+            day2.TimeSlots.Add(
+                 new TimeSlot()
+                     .AddTime("4:30-6pm CST", "2:30-4pm PST", "10:30pm-12am UTC")
+                     .AddSession(new ScheduleSession()
+                     {
+                         IsKeynote = true,
+                         SpeakerName = ""
+                         ,
+                         Title = ""
+                     })
+                     );
+
+            day2.TimeSlots.Add(
+                 new TimeSlot()
+                     .AddTime("6-7:30pm CST", "4-5:30pm PST", "12-1:30am UTC")
+                     .AddSession(new ScheduleSession()
+                     {
+                         IsKeynote = true,
+                         SpeakerName = ""
+                         ,
+                         Title = ""
+                     })
+                     );
+
+            model.Days.Add(day2); 
             return View(model);
         }
     }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using aspConf.Model;
 
 namespace aspConf.Controllers.Models
 {
@@ -41,6 +42,16 @@ namespace aspConf.Controllers.Models
             Times.Add(time);
             return this;
         }
+        public TimeSlot AddTime(params string[] times)
+        {
+            foreach (var time in times)
+            {
+                Times.Add(time);    
+            }
+            
+            return this;
+        }
+        
         public TimeSlot AddSession(ScheduleSession session)
         {
             Sessions.Add(session);
@@ -63,6 +74,26 @@ namespace aspConf.Controllers.Models
         public string SpeakerRateId { get; set; }
 
         public bool IsKeynote { get; set; }
+    }
+
+    public static class ScheduleSessionExtensions
+    {
+        public static ScheduleSession FindScheduleSession(this ConfContext context,int id,bool isKeynote = false)
+        {
+            return context.Sessions.Find(id).AsScheduleSession(isKeynote);
+        }
+        public static ScheduleSession AsScheduleSession(this Session session,bool isKeynote = false)
+        {
+            
+            return new ScheduleSession()
+                       {
+                           IsKeynote = isKeynote,
+                           SpeakerName = session.Speaker.FullName,
+                           Title = session.Title,
+                           SpeakerRateId =  "",
+                           Url = "",
+                       };
+        } 
     }
 
     public class Room
