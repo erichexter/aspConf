@@ -12,7 +12,7 @@ namespace aspConf.Controllers {
         public ActionResult Clear() {
             Repository.ClearCache();
 
-            return RedirectToAction("Index", "Default");
+            return Redirect("~/");
         }
 
         public ActionResult Blitz() {

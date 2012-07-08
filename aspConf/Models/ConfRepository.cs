@@ -26,14 +26,21 @@ namespace aspConf.Controllers.Models {
             }
         }
 
+        public IList<Session> GetActiveSessions() {
+            Func<IList<Session>> sessionSource = () => 
+                Context.Sessions
+                    .Where(sp => sp.IsActive)
+                    .ToList();
+
+            return GetFromCache(sessionSource);
+        }
+
         public IList<Speaker> GetActiveSpeakers() {
             Func<IList<Speaker>> speakerSource = () => {
                 using (var context = Context) {
                     return context.Speakers
                         .Where(sp => sp.IsActive)
                         .ToList();
-
-
                 }
             };
 

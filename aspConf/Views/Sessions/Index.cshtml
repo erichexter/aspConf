@@ -1,0 +1,15 @@
+﻿@model IList<aspConf.Model.Session>
+<h2>
+    Check out these Great Sessions!</h2>
+<p>
+    We great content to share with the community!  Here's a list of the topics we have currently planned.</p>
+@foreach (var session in Model) {
+    var speaker = session.Speaker;
+    var twitter = "http://twitter.com/@" + speaker.Twitter;
+    
+    <div>
+        <strong>@session.Title</strong>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="@twitter" target="_blank">@speaker.FullName</a>
+        <br />
+        <p>@session.Description</p>
+    </div>
+}
