@@ -19,6 +19,7 @@ namespace aspConf.Controllers {
                 return View("Temp");
 
             var model = new ScheduleViewModel();
+            model.ShowJoinButtons = false;//turn this on the day of the conf.
             var day1 = new ScheduleDay() {Title = "Day 1"};
 
             day1.Rooms.Add(new Room() { JoinUrl = "http://live.aspconf.net", Name = "Live Streaming" });
@@ -47,14 +48,14 @@ namespace aspConf.Controllers {
                     .AddSession(db.FindScheduleSession(17))
                     .AddSession(db.FindScheduleSession(19))
                     .AddSession(db.FindScheduleSession(2))
-                    .AddSession(null)
+                    .AddSession(db.FindScheduleSession(57))
                     );
             day1.TimeSlots.Add(
                 new TimeSlot()
                     .AddTime("12-1:30pm CST", "10-11:30am PST", "6-7:30pm UTC")
                     .AddSession(null)
                     .AddSession(db.FindScheduleSession(7))
-                    .AddSession(db.FindScheduleSession(18))
+                    .AddSession(null)
                     .AddSession(db.FindScheduleSession(16))
                     .AddSession(db.FindScheduleSession(27))
                     .AddSession(db.FindScheduleSession(3))
@@ -111,6 +112,7 @@ namespace aspConf.Controllers {
             day2.Rooms.Add(new Room() { JoinUrl = "/live", Name = "Room 3" });
             day2.Rooms.Add(new Room() { JoinUrl = "/live", Name = "Room 4" });
             day2.Rooms.Add(new Room() { JoinUrl = "/live", Name = "Room 5" });
+            day2.Rooms.Add(new Room() { JoinUrl = "/live", Name = "Room 6" });
 
             day2.TimeSlots.Add(
                 new TimeSlot()
@@ -120,7 +122,7 @@ namespace aspConf.Controllers {
                     .AddSession(null)
                     .AddSession(db.FindScheduleSession(48))
                     .AddSession(null)
-
+                    .AddSession(null)
                     );
 
             day2.TimeSlots.Add(
@@ -131,6 +133,7 @@ namespace aspConf.Controllers {
                     .AddSession(db.FindScheduleSession(52))
                     .AddSession(db.FindScheduleSession(38))
                     .AddSession(null)
+                    .AddSession(null)
                     );
             day2.TimeSlots.Add(
                 new TimeSlot()
@@ -140,7 +143,7 @@ namespace aspConf.Controllers {
                     .AddSession(null)
                     .AddSession(null)
                     .AddSession(db.FindScheduleSession(20))
-
+                    .AddSession(null)
                     );
             day2.TimeSlots.Add(
                 new TimeSlot()
@@ -157,10 +160,11 @@ namespace aspConf.Controllers {
                  new TimeSlot()
                      .AddTime("3-4:30pm CST", "1-2:30pm PST", "9-10:30pm UTC")
                     .AddSession(db.FindScheduleSession(41))
-                    .AddSession(db.FindScheduleSession(36))
+                    .AddSession(db.FindScheduleSession(54))
                     .AddSession(db.FindScheduleSession(49))
-                    .AddSession(null)
+                    .AddSession(db.FindScheduleSession(50))
                     .AddSession(db.FindScheduleSession(47))
+                    .AddSession(db.FindScheduleSession(39))
                      );
             day2.TimeSlots.Add(
                  new TimeSlot()
@@ -169,6 +173,7 @@ namespace aspConf.Controllers {
                     .AddSession(db.FindScheduleSession(54))
                     .AddSession(db.FindScheduleSession(43))
                     .AddSession(db.FindScheduleSession(46))
+                    .AddSession(null)
                     .AddSession(null)
                      );
 

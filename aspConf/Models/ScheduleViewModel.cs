@@ -12,6 +12,8 @@
         }
 
         public IList<ScheduleDay> Days { get; set; }
+
+        public bool ShowJoinButtons { get; set; }
     }
 
     public class ScheduleDay

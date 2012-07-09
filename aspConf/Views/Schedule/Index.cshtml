@@ -26,8 +26,17 @@
                 <th></th>
                 @foreach (var room in day.Rooms)
                 {
-                    <td><a class="btn btn-primary" 
-                           href="@room.JoinUrl" role="button"><span class="ui-button-text">join</span></a></td>
+                    <td>
+                        @if (Model.ShowJoinButtons)
+                        {
+                            <a class="btn btn-primary" 
+                               href="@room.JoinUrl" role="button"><span class="ui-button-text">join</span></a>
+                        }else
+                        {
+
+                            <text>&nbsp;</text>
+                        }
+                    </td>
                 }
             </tr>
         </thead>
