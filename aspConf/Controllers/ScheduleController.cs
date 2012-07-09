@@ -45,7 +45,7 @@ namespace aspConf.Controllers {
                     .AddTime("10:30-12pm CST", "8:30-10am PST", "4:30-6pm UTC")
                     .AddSession(null)
                     .AddSession(db.FindScheduleSession(23))
-                    .AddSession(db.FindScheduleSession(17))
+                    .AddSession(db.FindScheduleSession(21))
                     .AddSession(db.FindScheduleSession(19))
                     .AddSession(db.FindScheduleSession(2))
                     .AddSession(db.FindScheduleSession(57))
@@ -87,7 +87,7 @@ namespace aspConf.Controllers {
                     .AddSession(null)
                     .AddSession(db.FindScheduleSession(30))
                     .AddSession(db.FindScheduleSession(32))
-                    .AddSession(null)
+                    .AddSession(db.FindScheduleSession(17))
                     .AddSession(db.FindScheduleSession(14))
                     .AddSession(db.FindScheduleSession(15))
                     );
