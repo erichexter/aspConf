@@ -4,6 +4,7 @@ using aspConf.Model;
 
 namespace aspConf.Controllers {
     using System.Web.Mvc;
+    using aspConf.Models;
 
     public class ScheduleController : Controller
     {
@@ -14,7 +15,7 @@ namespace aspConf.Controllers {
             return View();
         }
         public ActionResult Index() {
-            return View("Temp");
+            //return View("Temp");
 
             var model = new ScheduleViewModel();
             var day1 = new ScheduleDay() {Title = "Day 1"};

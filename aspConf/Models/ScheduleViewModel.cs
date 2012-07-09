@@ -1,11 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using aspConf.Model;
-
-namespace aspConf.Controllers.Models
+﻿namespace aspConf.Models
 {
+    using System.Collections.Generic;
+    using aspConf.Model;
+
     public class ScheduleViewModel
     {
+
         public ScheduleViewModel()
         {
             Days = new List<ScheduleDay>();
