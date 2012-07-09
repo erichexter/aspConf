@@ -13,8 +13,9 @@ namespace aspConf.Controllers {
         {
             return View();
         }
-        public ActionResult Index()
-        {
+        public ActionResult Index() {
+            return View("Temp");
+
             var model = new ScheduleViewModel();
             var day1 = new ScheduleDay() {Title = "Day 1"};
 
