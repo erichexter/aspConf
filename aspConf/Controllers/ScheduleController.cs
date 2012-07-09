@@ -14,10 +14,8 @@ namespace aspConf.Controllers {
         {
             return View();
         }
-        public ActionResult Index(bool temp=true) {
-            if(temp)
-                return View("Temp");
-
+        public ActionResult Index() {
+            
             var model = new ScheduleViewModel();
             model.ShowJoinButtons = false;//turn this on the day of the conf.
             var day1 = new ScheduleDay() {Title = "Day 1"};
@@ -34,7 +32,7 @@ namespace aspConf.Controllers {
                     .AddTime("9-10:30am CST","7-8:30am PST","3-4:30pm UTC")
                     .AddSession(null)
                     .AddSession(db.FindScheduleSession(22))
-                    .AddSession(null)
+                    .AddSession(db.FindScheduleSession(62))
                     .AddSession(db.FindScheduleSession(10))
                     .AddSession(db.FindScheduleSession(37))
                     .AddSession(null)
@@ -97,7 +95,7 @@ namespace aspConf.Controllers {
         .AddTime("6-7:30pm CST", "4-5:30pm PST", "12-1:30am UTC")
         .AddSession(null)
         .AddSession(db.FindScheduleSession(45))
-        .AddSession(null)
+        .AddSession(db.FindScheduleSession(58))
         .AddSession(db.FindScheduleSession(12))
         .AddSession(db.FindScheduleSession(53))
         .AddSession(db.FindScheduleSession(4))
@@ -119,7 +117,7 @@ namespace aspConf.Controllers {
                     .AddTime("9-10:30am CST", "7-8:30am PST", "3-4:30pm UTC")
                     .AddSession(db.FindScheduleSession(31))
                     .AddSession(db.FindScheduleSession(11))
-                    .AddSession(null)
+                    .AddSession(db.FindScheduleSession(59))
                     .AddSession(db.FindScheduleSession(48))
                     .AddSession(null)
                     .AddSession(null)
@@ -140,7 +138,7 @@ namespace aspConf.Controllers {
                     .AddTime("12-1:30pm CST", "10-11:30am PST", "6-7:30pm UTC")
                     .AddSession(db.FindScheduleSession(33))
                     .AddSession(null)
-                    .AddSession(null)
+                    .AddSession(db.FindScheduleSession(60))
                     .AddSession(null)
                     .AddSession(db.FindScheduleSession(20))
                     .AddSession(null)
@@ -173,7 +171,7 @@ namespace aspConf.Controllers {
                     .AddSession(db.FindScheduleSession(54))
                     .AddSession(db.FindScheduleSession(43))
                     .AddSession(db.FindScheduleSession(46))
-                    .AddSession(null)
+                    .AddSession(db.FindScheduleSession(61))
                     .AddSession(null)
                      );
 
