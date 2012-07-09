@@ -14,8 +14,9 @@ namespace aspConf.Controllers {
         {
             return View();
         }
-        public ActionResult Index() {
-            return View("Temp");
+        public ActionResult Index(bool temp=true) {
+            if(temp)
+                return View("Temp");
 
             var model = new ScheduleViewModel();
             var day1 = new ScheduleDay() {Title = "Day 1"};
@@ -32,10 +33,10 @@ namespace aspConf.Controllers {
                     .AddTime("9-10:30am CST","7-8:30am PST","3-4:30pm UTC")
                     .AddSession(null)
                     .AddSession(db.FindScheduleSession(22))
-                    .AddSession(db.FindScheduleSession(21))
+                    .AddSession(null)
                     .AddSession(db.FindScheduleSession(10))
                     .AddSession(db.FindScheduleSession(37))
-                    .AddSession(db.FindScheduleSession(20))
+                    .AddSession(null)
                     );
 
             day1.TimeSlots.Add(
@@ -70,7 +71,7 @@ namespace aspConf.Controllers {
                     );
            day1.TimeSlots.Add(
                 new TimeSlot()
-                    .AddTime("4:30-6pm CST", "2:30-4pm PST", "10:30pm-12am UTC")
+                    .AddTime("3-4:30pm CST", "1-2:30pm PST", "9-10:30am UTC")
                     .AddSession(null)
                     .AddSession(db.FindScheduleSession(9))
                     .AddSession(db.FindScheduleSession(24))
@@ -81,14 +82,25 @@ namespace aspConf.Controllers {
 
            day1.TimeSlots.Add(
                 new TimeSlot()
-                    .AddTime("6-7:30pm CST", "4-5:30pm PST", "12-1:30am UTC")
+                    .AddTime("4:30-6pm CST", "2:30-4pm PST", "10:30am-12pm UTC")
                     .AddSession(null)
-                    .AddSession(db.FindScheduleSession(45))
+                    .AddSession(db.FindScheduleSession(30))
+                    .AddSession(db.FindScheduleSession(32))
                     .AddSession(null)
-                    .AddSession(db.FindScheduleSession(12))
-                    .AddSession(db.FindScheduleSession(53))
-                    .AddSession(db.FindScheduleSession(4))
+                    .AddSession(db.FindScheduleSession(14))
+                    .AddSession(db.FindScheduleSession(15))
                     );
+
+           day1.TimeSlots.Add(
+    new TimeSlot()
+        .AddTime("6-7:30pm CST", "4-5:30pm PST", "12-1:30am UTC")
+        .AddSession(null)
+        .AddSession(db.FindScheduleSession(45))
+        .AddSession(null)
+        .AddSession(db.FindScheduleSession(12))
+        .AddSession(db.FindScheduleSession(53))
+        .AddSession(db.FindScheduleSession(4))
+        );
 
             model.Days.Add(day1);
 
@@ -103,17 +115,33 @@ namespace aspConf.Controllers {
             day2.TimeSlots.Add(
                 new TimeSlot()
                     .AddTime("9-10:30am CST", "7-8:30am PST", "3-4:30pm UTC")
-                    .AddSession(new ScheduleSession(){IsKeynote = true})
+                    .AddSession(db.FindScheduleSession(31))
+                    .AddSession(db.FindScheduleSession(11))
+                    .AddSession(null)
+                    .AddSession(db.FindScheduleSession(48))
+                    .AddSession(null)
+
                     );
 
             day2.TimeSlots.Add(
                 new TimeSlot()
                     .AddTime("10:30-12pm CST", "8:30-10am PST", "4:30-6pm UTC")
-                    .AddSession(new ScheduleSession() { IsKeynote = true }));
+                    .AddSession(db.FindScheduleSession(42))
+                    .AddSession(db.FindScheduleSession(51))
+                    .AddSession(db.FindScheduleSession(52))
+                    .AddSession(db.FindScheduleSession(38))
+                    .AddSession(null)
+                    );
             day2.TimeSlots.Add(
                 new TimeSlot()
                     .AddTime("12-1:30pm CST", "10-11:30am PST", "6-7:30pm UTC")
-                    .AddSession(new ScheduleSession() { IsKeynote = true }));
+                    .AddSession(db.FindScheduleSession(33))
+                    .AddSession(null)
+                    .AddSession(null)
+                    .AddSession(null)
+                    .AddSession(db.FindScheduleSession(20))
+
+                    );
             day2.TimeSlots.Add(
                 new TimeSlot()
                     .AddTime("1:30-2:30pm CST", "11:30-12:30pm PST", "7:30-8:30pm UTC")
@@ -127,27 +155,23 @@ namespace aspConf.Controllers {
                     );
             day2.TimeSlots.Add(
                  new TimeSlot()
-                     .AddTime("4:30-6pm CST", "2:30-4pm PST", "10:30pm-12am UTC")
-                     .AddSession(new ScheduleSession()
-                     {
-                         IsKeynote = true,
-                         SpeakerName = ""
-                         ,
-                         Title = ""
-                     })
+                     .AddTime("3-4:30pm CST", "1-2:30pm PST", "9-10:30pm UTC")
+                    .AddSession(db.FindScheduleSession(41))
+                    .AddSession(db.FindScheduleSession(36))
+                    .AddSession(db.FindScheduleSession(49))
+                    .AddSession(null)
+                    .AddSession(db.FindScheduleSession(47))
                      );
-
             day2.TimeSlots.Add(
                  new TimeSlot()
-                     .AddTime("6-7:30pm CST", "4-5:30pm PST", "12-1:30am UTC")
-                     .AddSession(new ScheduleSession()
-                     {
-                         IsKeynote = true,
-                         SpeakerName = ""
-                         ,
-                         Title = ""
-                     })
+                     .AddTime("4:30-6pm CST", "2:30-4pm PST", "10:30pm-12am UTC")
+                    .AddSession(db.FindScheduleSession(40))
+                    .AddSession(db.FindScheduleSession(54))
+                    .AddSession(db.FindScheduleSession(43))
+                    .AddSession(db.FindScheduleSession(46))
+                    .AddSession(null)
                      );
+
 
             model.Days.Add(day2); 
             return View(model);
