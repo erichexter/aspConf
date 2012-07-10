@@ -10,9 +10,14 @@ namespace aspConf.Controllers {
     {
         private ConfContext db = new ConfContext();
 
-        public ActionResult Room()
+        public ActionResult Room(string id)
         {
-            return View();
+            var model = new RoomViewModel()
+                            {
+                                RoomName = "Room " + id,
+                                RoomNumber = id
+                            };
+            return View(model);
         }
         public ActionResult Index() {
             
