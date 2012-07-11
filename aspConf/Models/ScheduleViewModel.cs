@@ -93,7 +93,7 @@
                            SpeakerName = session.Speaker.FullName,
                            Title = session.Title,
                            SpeakerRateId = "",
-                           Url = "",
+                           Url = "/sessions#"+session.SessionId,
                        };
         }
     }

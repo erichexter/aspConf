@@ -7,10 +7,12 @@
     var speaker = session.Speaker;
     var twitter = "http://twitter.com/@" + speaker.Twitter;
     
+    <a name="@session.SessionId">
     <div>
         <strong>@session.Title</strong>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="@twitter" target="_blank">@speaker.FullName</a>
         <br />
         <p>@session.Description</p>
         <p style="display:none">@session.SessionId</p>
     </div>
+    </a>
 }
