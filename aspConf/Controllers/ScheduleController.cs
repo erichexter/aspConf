@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Web.UI;
 using aspConf.Controllers.Models;
 using aspConf.Model;
 
@@ -19,6 +20,7 @@ namespace aspConf.Controllers {
                             };
             return View(model);
         }
+        [OutputCache(Duration = 300,Location = OutputCacheLocation.Any)]
         public ActionResult Index() {
             
             var model = new ScheduleViewModel();
@@ -37,7 +39,7 @@ namespace aspConf.Controllers {
                     .AddTime("9-10:30am CST","7-8:30am PST","3-4:30pm UTC")
                     .AddSession(null)
                     .AddSession(db.FindScheduleSession(22))
-                    .AddSession(db.FindScheduleSession(62))
+                    .AddSession(null)
                     .AddSession(db.FindScheduleSession(10))
                     .AddSession(db.FindScheduleSession(37))
                     .AddSession(null)
@@ -56,9 +58,9 @@ namespace aspConf.Controllers {
             day1.TimeSlots.Add(
                 new TimeSlot()
                     .AddTime("12-1:30pm CST", "10-11:30am PST", "6-7:30pm UTC")
-                    .AddSession(null)
+                    .AddSession(db.FindScheduleSession(68))
                     .AddSession(db.FindScheduleSession(7))
-                    .AddSession(null)
+                    .AddSession(db.FindScheduleSession(65))
                     .AddSession(db.FindScheduleSession(16))
                     .AddSession(db.FindScheduleSession(27))
                     .AddSession(db.FindScheduleSession(3))
@@ -76,7 +78,7 @@ namespace aspConf.Controllers {
            day1.TimeSlots.Add(
                 new TimeSlot()
                     .AddTime("3-4:30pm CST", "1-2:30pm PST", "9-10:30am UTC")
-                    .AddSession(null)
+                    .AddSession(db.FindScheduleSession(69))
                     .AddSession(db.FindScheduleSession(9))
                     .AddSession(db.FindScheduleSession(24))
                     .AddSession(db.FindScheduleSession(25))
@@ -87,10 +89,10 @@ namespace aspConf.Controllers {
            day1.TimeSlots.Add(
                 new TimeSlot()
                     .AddTime("4:30-6pm CST", "2:30-4pm PST", "10:30am-12pm UTC")
-                    .AddSession(null)
-                    .AddSession(db.FindScheduleSession(30))
+                    .AddSession(db.FindScheduleSession(70))
+                    .AddSession(db.FindScheduleSession(71))
                     .AddSession(db.FindScheduleSession(32))
-                    .AddSession(db.FindScheduleSession(17))
+                    .AddSession(null)
                     .AddSession(db.FindScheduleSession(14))
                     .AddSession(db.FindScheduleSession(15))
                     );
@@ -98,7 +100,7 @@ namespace aspConf.Controllers {
            day1.TimeSlots.Add(
     new TimeSlot()
         .AddTime("6-7:30pm CST", "4-5:30pm PST", "12-1:30am UTC")
-        .AddSession(null)
+        .AddSession(db.FindScheduleSession(72))
         .AddSession(db.FindScheduleSession(45))
         .AddSession(db.FindScheduleSession(58))
         .AddSession(db.FindScheduleSession(12))
@@ -124,7 +126,7 @@ namespace aspConf.Controllers {
                     .AddSession(db.FindScheduleSession(11))
                     .AddSession(db.FindScheduleSession(59))
                     .AddSession(db.FindScheduleSession(48))
-                    .AddSession(null)
+                    .AddSession(db.FindScheduleSession(62))
                     .AddSession(null)
                     );
 
@@ -135,18 +137,18 @@ namespace aspConf.Controllers {
                     .AddSession(db.FindScheduleSession(51))
                     .AddSession(db.FindScheduleSession(52))
                     .AddSession(db.FindScheduleSession(38))
-                    .AddSession(null)
+                    .AddSession(db.FindScheduleSession(67))
                     .AddSession(null)
                     );
             day2.TimeSlots.Add(
                 new TimeSlot()
                     .AddTime("12-1:30pm CST", "10-11:30am PST", "6-7:30pm UTC")
                     .AddSession(db.FindScheduleSession(33))
-                    .AddSession(null)
+                    .AddSession(db.FindScheduleSession(30))
                     .AddSession(db.FindScheduleSession(60))
-                    .AddSession(null)
+                    .AddSession(db.FindScheduleSession(73))
                     .AddSession(db.FindScheduleSession(20))
-                    .AddSession(null)
+                    .AddSession(db.FindScheduleSession(74))
                     );
             day2.TimeSlots.Add(
                 new TimeSlot()
