@@ -9,7 +9,7 @@
 @foreach (var speaker in Model) {
     var twitter = "http://twitter.com/@" + speaker.Twitter;
     <div>
-        <div><img src="//cdn.geekstati.co/aspconf/content/images/speakers/missing.png" alt="aspConf Speaker @speaker.FullName" />
+        <div><img src="//avatars.io/twitter/@speaker.Twitter?size=medium" alt="aspConf Speaker @speaker.FullName" />
         <br />
         <a href="@twitter" target="_blank">@@@speaker.Twitter</a></div>
         <h3>@speaker.FullName</h3>
