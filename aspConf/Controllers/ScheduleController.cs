@@ -48,7 +48,7 @@ namespace aspConf.Controllers {
             day1.TimeSlots.Add(
                 new TimeSlot()
                     .AddTime("10:30-12pm CST", "8:30-10am PST", "4:30-6pm UTC")
-                    .AddSession(null)
+                    .AddSession(db.FindScheduleSession(66))
                     .AddSession(db.FindScheduleSession(23))
                     .AddSession(db.FindScheduleSession(21))
                     .AddSession(db.FindScheduleSession(19))
