@@ -138,7 +138,7 @@ namespace aspConf.Controllers {
                     .AddSession(db.FindScheduleSession(52))
                     .AddSession(db.FindScheduleSession(38))
                     .AddSession(db.FindScheduleSession(67))
-                    .AddSession(null)
+                    .AddSession(db.FindScheduleSession(74))
                     );
             day2.TimeSlots.Add(
                 new TimeSlot()
@@ -148,7 +148,7 @@ namespace aspConf.Controllers {
                     .AddSession(db.FindScheduleSession(60))
                     .AddSession(db.FindScheduleSession(73))
                     .AddSession(db.FindScheduleSession(20))
-                    .AddSession(db.FindScheduleSession(74))
+                    .AddSession(db.FindScheduleSession(75))
                     );
             day2.TimeSlots.Add(
                 new TimeSlot()
