@@ -7,5 +7,8 @@
             return View(result);
         }
 
+        public ActionResult Recording() {
+            return View();
+        }
     }
 }
