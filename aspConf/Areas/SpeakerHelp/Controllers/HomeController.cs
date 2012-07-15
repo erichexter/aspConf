@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace aspConf.Areas.SpeakerHelp.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         //
