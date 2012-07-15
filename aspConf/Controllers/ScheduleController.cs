@@ -41,7 +41,7 @@ namespace aspConf.Controllers {
             model.ShowJoinButtons = false; //turn this on the day of the conf.
             var day1 = new ScheduleDay() {Title = "Day 1"};
 
-            day1.Rooms.Add(new Room() {JoinUrl = "http://live.aspconf.net", Name = "Live Streaming"});
+            day1.Rooms.Add(new Room() {JoinUrl = "http://live.aspconf.net", Name = "Live Video"});
             day1.Rooms.Add(new Room() {JoinUrl = "http://live.aspconf.net/room/1", Name = "Room 1"});
             day1.Rooms.Add(new Room() {JoinUrl = "http://live.aspconf.net/room/2", Name = "Room 2"});
             day1.Rooms.Add(new Room() {JoinUrl = "http://live.aspconf.net/room/3", Name = "Room 3"});
