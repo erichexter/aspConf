@@ -17,7 +17,7 @@ namespace aspConf.Areas.SpeakerHelp
             context.MapRoute(
                 "SpeakerHelp_default",
                 "SpeakerHelp/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }, new string[] { "aspConf.Areas.SpeakerHelp.Controllers"}
+                new {controller="home", action = "Index", id = UrlParameter.Optional }, new string[] { "aspConf.Areas.SpeakerHelp.Controllers"}
             );
         }
     }
