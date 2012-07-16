@@ -1,6 +1,17 @@
 ﻿@model aspConf.Models.ScheduleViewModel
 <h2>Schedule</h2>
 
+<style>
+    table#schedule { border: 1px solid #99a; margin-top: 20px;margin-bottom: 20px; }
+    table#schedule ul { padding: 0; white-space: nowrap; text-align: left; font-weight: bold; }
+    table#schedule td { border: 1px solid #eef  1px solid #eef; border-top: 1px solid #99a; padding: 2px; text-align: center;  }
+    table#schedule tr.sessionname td { border-bottom: none; }
+    table#schedule tr.sessioninfo td { border-top: none; }
+    table#schedule #times { text-align: left; font-style: normal; background: #eee; width: 10%; }
+    table#schedule .track { width: 15%; }
+    table#schedule td.allrooms { text-align: center; }
+</style>
+
 @foreach (var day in Model.Days)
 {
     <h3>@day.Title</h3>
@@ -99,13 +110,3 @@
         </tbody>
     </table>
 }
-<style>
-    table#schedule { border: 1px solid #99a; margin-top: 20px;margin-bottom: 20px; }
-    table#schedule ul { padding: 0; white-space: nowrap; text-align: left; font-weight: bold; }
-    table#schedule td { border: 1px solid #eef  1px solid #eef; border-top: 1px solid #99a; padding: 2px; min-height: 120px; text-align: center;  }
-    table#schedule tr.sessionname td { border-bottom: none; }
-    table#schedule tr.sessioninfo td { border-top: none; }
-    table#schedule #times { text-align: left; font-style: normal; background: #eee; width: 10%; }
-    table#schedule .track { width: 15%; }
-    table#schedule td.allrooms { text-align: center; }
-</style>
