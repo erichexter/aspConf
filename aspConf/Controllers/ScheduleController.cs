@@ -194,7 +194,7 @@ namespace aspConf.Controllers {
                     .AddSession(db.FindScheduleSession(43))                    
                     .AddSession(db.FindScheduleSession(61))
                     .AddSession(db.FindScheduleSession(18))
-                    .AddSession(null)
+                    .AddSession(db.FindScheduleSession(78))
                 );
 
 
