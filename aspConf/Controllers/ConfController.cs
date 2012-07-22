@@ -9,7 +9,7 @@ namespace aspConf.Controllers {
 
         public ConfRepository Repository { get; protected set; }       
 
-        public ActionResult Clear() {
+        public virtual ActionResult Clear() {
             Repository.ClearCache();
 
             return Redirect("~/");

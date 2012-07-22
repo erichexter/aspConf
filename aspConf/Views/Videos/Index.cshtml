@@ -1,1 +1,71 @@
-﻿<h2>Videos</h2>
+﻿@model IList<aspConf.Models.Ch9Video>
+<style>
+    #frameContainer {
+        text-align: center;
+        padding: 0 0 7px 0;
+    }
+    
+    #videoListing {
+        width: 512px;
+        text-align: left;
+    }
+    
+    .video {
+        text-align: center;
+    }
+</style>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(function () {
+            $("#videoListing").accordion({
+                active: false,
+                change: function (event, ui) {
+                    var item = ui.newHeader;
+                    var key = item.attr("key");
+
+                    playVideo(key);
+                }
+            });
+
+            $("#videoListing").accordion("activate", 0);
+
+            $(".video").click(function () {
+                var item = $(this);
+                var key = item.attr("key");
+
+                playVideo(key);
+            });
+        });
+
+        function playVideo(key) {
+            var videoUrl = "/videos/player/" + key;
+            $("#videoPlayer").attr("src", videoUrl);
+        }
+    </script>
+}
+<h2>
+    Videos</h2>
+<div id="frameContainer">
+    <iframe id="videoPlayer" src='@Href("~/videos/player")' border="0" frameborder="0" scrolling="no" 
+        width="512" height="365"
+        style="overflow: hidden;">
+    </iframe>
+    <br />
+    <a href="http://channel9.msdn.com/events/aspconf/aspconf" target="_blank">To comment on this
+        video or download in WMV, MP3, and MP4 formats, view the series on Channel 9</a>
+</div>
+<center>
+    <div id="videoListing">
+        @foreach (var video in Model) {
+            <h2 key="@video.Key">
+                <a href="#">@video.Title</a></h2>
+            <div style="height:auto;">
+                <div id="videoDescription">@Html.Raw(@video.Description)</div>
+                 <p>
+                    <a class="btn btn-info" target="_blank" href="@video.Url"
+                        role="button"><span class="ui-button-text">More Info &raquo;</span></a></p>
+            </div>
+        }
+    </div>
+</center>
